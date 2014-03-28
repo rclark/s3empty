@@ -1,0 +1,25 @@
+{
+  "name": "s3empty",
+  "version": "0.0.1",
+  "description": "empty an s3 bucket entirely",
+  "bin": {
+    "s3empty": "s3empty.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rclark/s3empty.git"
+  },
+  "keywords": [
+    "s3",
+    "delete"
+  ],
+  "author": "Ryan Clark",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/rclark/s3empty/issues"
+  },
+  "homepage": "https://github.com/rclark/s3empty"
+}

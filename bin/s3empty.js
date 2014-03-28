@@ -19,9 +19,14 @@ var count = 0;
 
 function deleteObjects(err, data) {
     if (err) throw err;
+    if (data.Contents.length === 0) return console.log('Empty!');
+
     var keys = _(data.Contents).map(function(file) {
         return { Key: file.Key };
     });
+    var marker = keys[keys.length - 1].Key;
+    if (data.IsTruncated) listObjects(marker);
+
     s3.deleteObjects({
         Bucket: argv.bucket,
         Delete: { Objects: keys }
@@ -29,7 +34,6 @@ function deleteObjects(err, data) {
         if (err) throw err;
         count = count + data.Contents.length;
         console.log('Deleted %s files', count);
-        if (data.IsTruncated) listObjects();
     });
 }
 
